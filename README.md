@@ -13,7 +13,7 @@ MyPass每日健康填报脚本XD
    $ pip install requests
    ```
 
-4. 修改`data.json`文件
+4. 修改`data.json`文件(支持多个账号)
 
    ```json
    [
@@ -24,7 +24,7 @@ MyPass每日健康填报脚本XD
        {
            "username": "统一认证账号",
            "password": "统一认证密码"
-       } // 支持多个账号
+       } 
    ]
    ```
 
