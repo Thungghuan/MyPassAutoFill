@@ -42,7 +42,7 @@ MyPass每日健康填报脚本XD
 
    ```shell
    # 例如设置crontab每天早上八点填报
-   0 8 * * * /usr/bin/python3 ~/MyPassAutoFill/mypass.py >> ~/mypasslog
+   0 8 * * * /usr/bin/python3 ~/MyPassAutoFill/mypass.py >> ~/mypasslog 2>&1
    ```
 
 ## 文件目录
