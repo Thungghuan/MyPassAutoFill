@@ -13,9 +13,11 @@ MyPass每日健康填报脚本XD
    $ pip install requests
    ```
 
-4. 修改`data.json`文件(支持多个账号)
+4. 修改`data.py`文件(支持多个账号)
 
-   ```json
+   > 注：使用模块导入的方式，防止以路径导入json文件时crontab等报错
+
+   ```py
    [
        {
            "username": "统一认证账号",
@@ -24,7 +26,7 @@ MyPass每日健康填报脚本XD
        {
            "username": "统一认证账号",
            "password": "统一认证密码"
-       } 
+       }
    ]
    ```
 
@@ -47,9 +49,10 @@ MyPass每日健康填报脚本XD
 
 ```
 .
-|-- mypass.py 	 主文件  
-|-- des.py	   加密算法  
-|-- data.json  账号数据
+|-- mypass.py 主文件
+|-- des.py 加密算法
+|-- data.py 账号数据
+|-- health.js 学校官网js文件，可供学习研究
 ```
 
 
