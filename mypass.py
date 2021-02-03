@@ -2,6 +2,7 @@ import re
 import requests
 import json
 from des import str_enc
+from data import users
 
 
 def mypass_main(username, password):
@@ -36,10 +37,8 @@ def mypass_main(username, password):
 
 
 def main():
-    with open('./data.json', 'r') as f:
-        data = json.load(f)
-        for value in data:
-            mypass_main(value['username'], value['password'])
+    for user in users:
+        mypass_main(user["username"], user["password"])
 
 
 if __name__ == '__main__':
