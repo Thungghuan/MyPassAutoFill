@@ -35,11 +35,6 @@ def mypass_main(username, password):
     health_data_res = session.get(
         "https://enroll.scut.edu.cn/door/health/h5/get")
 
-    # mypass_page = session.get("https://enroll.scut.edu.cn/door/health/h5/health.html")
-
-    # mypass_data = session.get("https://enroll.scut.edu.cn/door/health/h5/get")
-    # add_data = session.post("https://enroll.scut.edu.cn/door/health/h5/oneKeyAdd", data={})
-
     health_data = json.loads(health_data_res.text)['data']['healthRptInfor']
 
     post_health_data = {
@@ -76,6 +71,10 @@ def mypass_main(username, password):
         "iVaccinState": health_data["iVaccinState"],
         "iHealthCodeState": health_data["iHealthCodeState"],
         "iRptState": "0",
+        "sVaccinFactoryName": health_data["sVaccinFactoryName"],
+        "sVaccinFactoryCode": health_data["sVaccinFactoryCode"],
+        "iVaccinType": health_data["iVaccinType"],
+        "dVaccin1Date": health_data["dVaccin1Date"],
         "sDegreeCode": health_data["sDegreeCode"],
         "iSex": health_data["iSex"],
         "sCollegeName": health_data["sCollegeName"],
@@ -91,9 +90,10 @@ def mypass_main(username, password):
         url='https://enroll.scut.edu.cn/door/health/h5/add',
         data=post_health_data
     )
-    
+
     with open(sys.path[0] + '/mypasslog', 'a') as f:
-        f.write(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) + ": " + "\n")
+        f.write(time.strftime("%Y-%m-%d %H:%M:%S",
+                time.localtime()) + ": " + "\n")
         f.write("username: " + username + "\n")
         f.write("result: " + add_data.text + '\n')
 
