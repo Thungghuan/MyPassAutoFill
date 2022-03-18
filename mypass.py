@@ -37,54 +37,9 @@ def mypass_main(username, password):
 
     health_data = json.loads(health_data_res.text)['data']['healthRptInfor']
 
-    post_health_data = {
-        "dRptDate": health_data["dRptDate"],
-        "sPersonName": health_data["sPersonName"],
-        "sPersonCode": health_data["sPersonCode"],
-        "sPhone": health_data["sPhone"],
-        "sParentPhone": health_data["sParentPhone"],
-        "iIsGangAoTai": health_data["iIsGangAoTai"],
-        "iIsOversea": health_data["iIsOversea"],
-        "sHomeProvName": health_data["sHomeProvName"],
-        "sHomeProvCode": health_data["sHomeProvCode"],
-        "sHomeCityName": health_data["sHomeCityName"],
-        "sHomeCityCode": health_data["sHomeCityCode"],
-        "sHomeCountyName": health_data["sHomeCountyName"],
-        "sHomeCountyCode": health_data["sHomeCountyCode"],
-        "sHomeAddr": health_data["sHomeAddr"],
-        "iSelfState": health_data["iSelfState"],
-        "iFamilyState": health_data["iFamilyState"],
-        "sNowProvName": health_data["sNowProvName"],
-        "sNowProvCode": health_data["sNowProvCode"],
-        "sNowCityName": health_data["sNowCityName"],
-        "sNowCityCode": health_data["sNowCityCode"],
-        "sNowCountyName": health_data["sNowCountyName"],
-        "sNowCountyCode": health_data["sNowCountyCode"],
-        "sNowAddr": health_data["sNowAddr"],
-        "iNowGoRisks": health_data["iNowGoRisks"],
-        "iRctRisks": health_data["iRctRisks"],
-        "iRctKey": health_data["iRctKey"],
-        "iRctOut": health_data["iRctOut"],
-        "iRctTouchKeyMan": health_data["iRctTouchKeyMan"],
-        "iRctTouchBackMan": health_data["iRctTouchBackMan"],
-        "iRctTouchDoubtMan": health_data["iRctTouchDoubtMan"],
-        "iVaccinState": health_data["iVaccinState"],
-        "iHealthCodeState": health_data["iHealthCodeState"],
-        "iRptState": "0",
-        "sVaccinFactoryName": health_data["sVaccinFactoryName"],
-        "sVaccinFactoryCode": health_data["sVaccinFactoryCode"],
-        "iVaccinType": health_data["iVaccinType"],
-        "dVaccin1Date": health_data["dVaccin1Date"],
-        "sDegreeCode": health_data["sDegreeCode"],
-        "iSex": health_data["iSex"],
-        "sCollegeName": health_data["sCollegeName"],
-        "sCampusName": health_data["sCampusName"],
-        "sDormBuild": health_data["sDormBuild"],
-        "sDormRoom": health_data["sDormRoom"],
-        "sMajorName": health_data["sMajorName"],
-        "sClassName": health_data["sClassName"],
-        "iInSchool": health_data["iInSchool"]
-    }
+    post_health_data = {}
+    for key in health_data:
+        post_health_data[key] = health_data[key]
 
     add_data = session.post(
         url='https://enroll.scut.edu.cn/door/health/h5/add',
