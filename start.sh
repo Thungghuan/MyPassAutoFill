@@ -9,9 +9,8 @@ echo "" >> $PWD/mypasslog
 
 read -p "是否现在填报一次 [Yn] " yn
 case $yn in
-    [Yy]* ) python3 $PWD/mypass.py;;
     [Nn]* ) break;;
-    * ) exit;;
+    * ) python3 $PWD/mypass.py;;
 esac
 
 crontab -l > conf 2>/dev/null
