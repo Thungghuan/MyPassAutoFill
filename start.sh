@@ -10,7 +10,7 @@ echo "" >> $PWD/mypasslog
 read -p "是否现在填报一次 [Yn] " yn
 case $yn in
     [Yy]* ) python3 $PWD/mypass.py;
-    [Nn]* ) break;
+    [Nn]* ) break;;
     * ) exit;;
 esac
 
